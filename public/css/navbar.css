@@ -1,0 +1,19 @@
+body {
+    background-color: #181642;
+    /* font-family: 'Poppins', sans-serif; */
+}
+
+nav {
+    font-size: 18px;
+    line-height: 24px;
+    background-color: #181642;
+    box-shadow: #6172f5 0px 1px 5px 0px;
+}
+
+nav #logo {
+    font-size: 22px;
+}
+/* 
+.nav-link:hover {
+
+} */

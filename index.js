@@ -4,6 +4,7 @@ import path from "path";
 import HomeController from "./src/controllers/homeController.js";
 
 const app = express();
+app.use(express.static("public"));
 
 // setup view engine
 app.use(layouts);
