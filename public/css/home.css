@@ -12,6 +12,15 @@
     font-size: 22px;
 }
 
+.jobBtn a {
+    text-decoration: none;
+    color: white;
+}
+
+.jobBtn:hover {
+    background-color: #cc0267;
+}
+
 #word-animation {
     font-size: 2em;
 }

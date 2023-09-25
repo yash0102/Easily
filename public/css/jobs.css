@@ -1,0 +1,8 @@
+.bg-theme {
+    background-color: #0e0d23;
+    color: white;
+}
+
+.min-vh-100 {
+    min-height: 100vh !important;
+}
