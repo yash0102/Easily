@@ -18,6 +18,7 @@ const jobController = new JobsController();
 
 app.get("/",homeController.getHome);
 app.get("/jobs",jobController.getJobs);
+app.get("/jobs/:id",jobController.getJobProfile);
 
 app.listen(3000, ()=>{
     console.log('Server is running on port 3000');

@@ -4,4 +4,10 @@ export default class JobsController {
             bgColor: "#0e0d23",
         });
     }
+
+    getJobProfile(req, res) {
+        res.render("jobProfile", {
+            bgColor: "#fff"
+        })
+    }
 }
