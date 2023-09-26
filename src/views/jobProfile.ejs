@@ -35,3 +35,38 @@
         </span></small>
     </div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="applyModal" tabindex="-1" aria-labelledby="applyModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fw-light text-success fs-5" id="applyModalLabel">easily</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body fw-light">
+                <form action="/" method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control fw-light" id="name" name="name" placeholder="test" >
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control fw-light" id="email" name="email" step="0.01" placeholder="test@gmail.com"  >
+                    </div>
+                    <div class="mb-3">
+                        <label for="contact" class="form-label">Contact</label>
+                        <input type="number" class="form-control fw-light" id="contact" name="contact" step="0.01" placeholder="+91 1234567890"  >
+                    </div>
+                    <div class="mb-3">
+                        <label for="imageUrl" class="form-label">Resume</label>
+                        <input type="file" class="form-control fw-light" id="resume" name="resume" accept="file/*">
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary fw-light">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
