@@ -1,12 +1,6 @@
 <div class="container w-50 mt-5 border shadow p-3 mb-5 bg-body-tertiary rounded">
     <h1 class="text-center fw-normal">Login</h1>
 
-    <% if(errorMessage) { %>
-    <div class="alert alert-danger" role="alert">
-        <%= errorMessage %>
-    </div>
-    <% } %>
-    
     <form class="mt-4 mb-4" action="/login" method="post">
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>
