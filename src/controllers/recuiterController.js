@@ -45,5 +45,12 @@ export default class RecuiterController {
         res.clearCookie('lastVisit');
     }
 
+    postjob(req, res) {
+        res.render("postjob", {
+            bgColor: "white",
+            userEmail: req.session.userEmail,
+            userName: req.session.userName,
+        })
+    }
 
 }

@@ -1,0 +1,71 @@
+<div class="container w-50 mt-5 border shadow p-3 mb-5 bg-body-tertiary rounded">
+    <h1 class="text-center fw-normal">Post a new Job</h1>
+
+    <form class="mt-4 mb-4 fw-light" action="/postjob" method="post">
+        <label for="category" class="form-label fw-normal fs-5">Category</label>
+        <div class="input-group mb-3">
+            <!-- <span class="input-group-text fw-light">Category</span> -->
+            <select class="form-select fw-light" id="category">
+                <option class="fw-light" selected>Select job category</option>
+                <option class="fw-light" value="1">Tech</option>
+                <option class="fw-light" value="2">Non Tech</option>
+            </select>
+        </div>
+        <label for="jobRole" class="form-label fw-normal fs-5">Position</label>
+        <div class="input-group mb-3">
+            <!-- <span class="input-group-text fw-light">Job Role</span> -->
+            <select class="form-select fw-light" id="jobRole">
+                <option class="fw-light" selected>Select job designation</option>
+                <option class="fw-light" value="1">HR</option>
+                <option class="fw-light" value="2">SDE</option>
+                <option class="fw-light" value="3">DevOps</option>
+                <option class="fw-light" value="4">MERN Developer</option>
+                <option class="fw-light" value="5">MEAN Developer</option>
+                <option class="fw-light" value="5">Java Developer</option>
+                <option class="fw-light" value="6">Front-End Developer</option>
+                <option class="fw-light" value="7">Back-End Developer</option>
+                <option class="fw-light" value="8">Full-Stack Developer</option>
+            </select>
+        </div>
+
+        <!-- <div class="mb-3">
+            <label for="location" class="form-label">Enter job location</label>
+            <input type="text" class="form-control fw-light" id="location" name="location" step="0.01" placeholder="Raipur Chhattisgarh"  >
+        </div> -->
+        <div class="input-group mb-3">
+            <span class="input-group-text fw-normal fs-5">Location</span>
+            <input type="text" class="form-control fw-light" placeholder="Enter job location" aria-label="Username">
+            <span class="input-group-text fw-normal fs-5">Apply By</span>
+            <input type="date" class="form-control fw-light" aria-label="Server">
+        </div>
+        <div class="mb-3">
+            <label for="company" class="form-label fw-normal fs-5">Company Name</label>
+            <!-- <span class="input-group-text fw-light">Company</span> -->
+            <input type="text" class="form-control fw-light" id="company" name="company" step="0.01" placeholder="Google"  >
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text fw-normal fs-5">Salary</span>
+            <input type="number" class="form-control fw-light" placeholder="Enter salary" aria-label="Username">
+            <span class="input-group-text fw-normal fs-5">Total Positions</span>
+            <input type="number" class="form-control fw-light" placeholder="No of openings" aria-label="Server">
+        </div>
+        <label for="skills" class="form-label fw-normal fs-5">Skills Required</label>
+        <div class="input-group mb-3">
+            <select multiple class="form-select fw-light d-inline" id="skills">
+                <option class="fw-light" value="1">React</option>
+                <option class="fw-light" value="2">NodeJs</option>
+                <option class="fw-light" value="3">Angular</option>
+                <option class="fw-light" value="4">MongoDB</option>
+                <option class="fw-light" value="5">SQL</option>
+                <option class="fw-light" value="5">Express</option>
+                <option class="fw-light" value="6">Java</option>
+                <option class="fw-light" value="7">SpringBoot</option>
+                <option class="fw-light" value="8">C++</option>
+                <option class="fw-light" value="9">Data Structure & Algo</option>
+            </select>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-success text-white fs-6 fw-light">Submit</button>
+        </div>
+    </form>
+</div> 
