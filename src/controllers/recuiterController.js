@@ -1,3 +1,4 @@
+import JobModel from "../models/job.model.js";
 import UserModel from "../models/userModel.js";
 
 export default class RecuiterController {
@@ -26,7 +27,9 @@ export default class RecuiterController {
         req.session.userEmail = email;
         req.session.userName = user.name;
         // return res.redirect("/jobs");
+        let jobs = JobModel.get();
         return res.render("jobs", {
+            jobs: jobs,
             bgColor: "#0e0d23",
             userEmail: req.session.userEmail,
             userName: req.session.userName,
@@ -43,14 +46,6 @@ export default class RecuiterController {
             }
         })
         res.clearCookie('lastVisit');
-    }
-
-    postjob(req, res) {
-        res.render("postjob", {
-            bgColor: "white",
-            userEmail: req.session.userEmail,
-            userName: req.session.userName,
-        })
     }
 
 }

@@ -41,7 +41,8 @@ app.post("/register", recuiterController.postRegister);
 app.get("/login", recuiterController.getLogin);
 app.post("/login", recuiterController.postLogin);
 app.get("/logout", recuiterController.logout);
-app.get("/postjob", recuiterController.postjob);
+app.get("/postjob", jobController.getPostjobForm);
+app.post("/postjob", jobController.postNewJob);
 app.get("/jobs",jobController.getJobs);
 app.get("/jobs/:id",jobController.getJobProfile);
 
