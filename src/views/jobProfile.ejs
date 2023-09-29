@@ -3,7 +3,7 @@
         <img src="/images/web-banner.png" class="img-fluid" alt="web-banner">
     </header>
     <div>
-        <h1 class="text-success fw-light fs-1 text-center m-3"><span class="text-danger"> SDE</span> oppertunity in GURGAON HR IND REMOTE at <span class="text-info"> Coding Ninjas</span></h1>
+        <h1 class="text-success fw-light fs-1 text-center m-3"><span class="text-danger"> <%= jobs.position %></span> oppertunity in <%= jobs.location %> at <span class="text-info"> <%= jobs.company %></span></h1>
     </div>
 
     <% if(locals.userEmail) {%>
@@ -13,32 +13,30 @@
         </span>
         <div class="mt-1">
             <spna class="ms-4">
-                <img src="https://cdn-user-icons.flaticon.com/100807/100807182/1695891561562.svg?token=exp=1695892487~hmac=4ddf6e3a24b8b2a5fcc290765a993bb6" width="25px"> 
+                <img src="/images/Update.png" width="25px"> 
             </spna>
             <spna class="ms-2">
-                <img src="https://cdn-icons-png.flaticon.com/128/458/458594.png" width="25px"> 
+                <img src="/images/Delete.png" width="25px"> 
             </spna>
         </div>
     </div>
     <% } %>
     <div class="ms-4">
-        <h4 class="fw-light">Coding Ninjas</h4>
-        <h5 class="fw-light">Tech SDE</h5>
+        <h3 class="fw-light"><%= jobs.company %></h3>
+        <h5 class="fw-light"><%= jobs.category %> <span class="text-success"> <%= jobs.position %></span></h5>
         <ul class="fw-light fs-5" style="list-style-type:none;">
-            <li><img src="https://cdn-icons-png.flaticon.com/128/9077/9077975.png" width="22"> Gurgaon HR IND Remote</li>
-            <li><img src="https://cdn-icons-png.flaticon.com/128/6366/6366707.png" width="20" > 14-20lpa</li>
-            <li><img src="https://cdn-icons-png.flaticon.com/128/786/786017.png" width="18"> Apply By 30 Aug 2023</li>
-            <li><img src="https://cdn-icons-png.flaticon.com/128/5444/5444054.png" width="18"> Number of openings 5</li>
+            <li><img src="https://cdn-icons-png.flaticon.com/128/9077/9077975.png" width="22"> <%= jobs.location %></li>
+            <li><img src="https://cdn-icons-png.flaticon.com/128/6366/6366707.png" width="20" > <%= jobs.salary %> lpa</li>
+            <li><img src="https://cdn-icons-png.flaticon.com/128/786/786017.png" width="18"> Apply By <%= jobs.date %></li>
+            <li><img src="https://cdn-icons-png.flaticon.com/128/5444/5444054.png" width="18"> Number of openings <%= jobs.numOfOpenings %></li>
             <li><a href="/" style="text-decoration: none; color: #e40467;"><img src="/images/people.png" width="19"> Applicants 1</a></li>
         </ul>
         <div class="ms-4">
-            <button class="btn btn-sm btn-outline-info">REACT</button>
-            <button class="btn btn-sm btn-outline-info">NodeJs</button>
-            <button class="btn btn-sm btn-outline-info">JS</button>
-            <button class="btn btn-sm btn-outline-info">SQL</button>
-            <button class="btn btn-sm btn-outline-info">MongoDB</button>
-            <button class="btn btn-sm btn-outline-info">Express</button>
-            <button class="btn btn-sm btn-outline-info">AWS</button>
+            <% if (jobs.skills.length > 0) { %>
+                <% jobs.skills.forEach((skillName) => { %>
+                <button class="btn btn-sm btn-outline-info mb-1"><%= skillName %></button>
+                <% }) %>
+            <% } %>
         </div>
         <div class="ms-4 mb-3 mt-2">
             <button data-bs-toggle="modal" data-bs-target="#applyModal" class="btn fw-light btn-md btn-primary px-5 my-2">
@@ -46,9 +44,12 @@
             </button>
         </div>
         <small class="text-body-secondary">
+        <% if(locals.lastVisit) { %>
         <span style="width: 180px" class="bg-success text-white fw-light fs-6 border border-success p-1 border-opacity-50 rounded">
-            Posted: 9/25/2023, 6:00:22 PM
-        </span></small>
+            Posted: <%= locals.lastVisit %>
+        </span>
+        <% } %>
+    </small>
     </div>
 </div>
 
@@ -60,7 +61,8 @@
                 <h1 class="modal-title fw-light text-success fs-5" id="applyModalLabel">easily</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body fw-light">
+            <div class="modal-body fw-normal fs-6">
+                <h2 class="fw-light text-center">apply in less than 1 minute</h2>
                 <form action="/" method="post" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="name" class="form-label">Name</label>

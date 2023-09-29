@@ -44,7 +44,7 @@ app.get("/logout", recuiterController.logout);
 app.get("/postjob", jobController.getPostjobForm);
 app.post("/postjob", jobController.postNewJob);
 app.get("/jobs",jobController.getJobs);
-app.get("/jobs/:id",jobController.getJobProfile);
+app.get("/jobs/:id",setLastVisit, jobController.getJobProfileView);
 
 app.listen(3000, ()=>{
     console.log('Server is running on port 3000');

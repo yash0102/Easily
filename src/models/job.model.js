@@ -1,10 +1,10 @@
 export default class JobModel {
-    constructor(id, category, position, location, date, company, salary, numOfOpenings, skills) {
+    constructor(id, category, position, location, formatDate, company, salary, numOfOpenings, skills) {
     this.id = id;
     this.category=category ;
     this.position = position;
     this.location = location;
-    this.date = date;
+    this.date = formatDate;
     this.company = company;
     this.salary = salary;
     this.numOfOpenings = numOfOpenings;
@@ -20,13 +20,13 @@ export default class JobModel {
         jobs.splice(index,1);
     }
 
-    static add(category, position, location, date, company, salary, numOfOpenings, skills){
+    static add(category, position, location, formatDate, company, salary, numOfOpenings, skills){
         let newJob = new JobModel(
             jobs.length + 1,
             category,
             position,
             location,
-            date,
+            formatDate,
             company,
             salary,
             numOfOpenings,
@@ -36,7 +36,7 @@ export default class JobModel {
     }
 
     static getById(id) {
-        return products.find((job) => job.id == id);
+        return jobs.find((job) => job.id == id);
     }
 }
 
@@ -54,25 +54,25 @@ var jobs = [
         ["React", "NodeJs", "JS", "SQL", "MongoDB", "Express", "AWS"]
     ),
     new JobModel(
-        1,
+        2,
         "Tech",
-        "SDE",
-        "Gurgaon HR IND Remote",
+        "Angular Developer",
+        "Pune IND On-Site",
         "30-09-2023",
-        "Coding Ninjas",
-        "14 - 20",
+        "Go Digit",
+        "6-10",
         3,
-        ["React", "NodeJs", "JS", "SQL", "MongoDB", "Express", "AWS"]
+        ["React", "NodeJs", "JS", "SQL", "MongoDB", "Express", "AWS"],
     ),
     new JobModel(
-        1,
+        3,
         "Tech",
         "SDE",
-        "Gurgaon HR IND Remote",
+        "Banglore IND",
         "30-09-2023",
-        "Coding Ninjas",
-        "14 - 20",
+        "Juspay",
+        "20-26",
         3,
-        ["React", "NodeJs", "JS", "SQL", "MongoDB", "Express", "AWS"]
+        ["React", "NodeJs", "JS", "SQL", "MongoDB", "Express", "AWS"],
     ),
 ];
