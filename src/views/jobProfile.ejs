@@ -12,12 +12,12 @@
             Actively hiring <img src="https://cdn-icons-png.flaticon.com/128/5668/5668104.png" width="15px">
         </span>
         <div class="mt-1">
-            <spna class="ms-4">
+            <a href="/update/<%= jobs.id %>" class="ms-4" style="text-decoration: none;">
                 <img src="/images/Update.png" width="25px"> 
-            </spna>
-            <spna class="ms-2">
+            </a>
+            <a href="/delete/<%= jobs.id %>" class="ms-2">
                 <img src="/images/Delete.png" width="25px"> 
-            </spna>
+            </a>
         </div>
     </div>
     <% } %>
@@ -27,7 +27,7 @@
         <ul class="fw-light fs-5" style="list-style-type:none;">
             <li><img src="https://cdn-icons-png.flaticon.com/128/9077/9077975.png" width="22"> <%= jobs.location %></li>
             <li><img src="https://cdn-icons-png.flaticon.com/128/6366/6366707.png" width="20" > <%= jobs.salary %> lpa</li>
-            <li><img src="https://cdn-icons-png.flaticon.com/128/786/786017.png" width="18"> Apply By <%= jobs.date %></li>
+            <li><img src="https://cdn-icons-png.flaticon.com/128/786/786017.png" width="18"> Apply By <%= jobs.date %></li>         <% console.log("jobProfile ",jobs.date) %>
             <li><img src="https://cdn-icons-png.flaticon.com/128/5444/5444054.png" width="18"> Number of openings <%= jobs.numOfOpenings %></li>
             <li><a href="/" style="text-decoration: none; color: #e40467;"><img src="/images/people.png" width="19"> Applicants 1</a></li>
         </ul>

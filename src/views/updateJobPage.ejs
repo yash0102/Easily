@@ -1,0 +1,72 @@
+<div class="container w-50 mt-5 border shadow p-3 mb-5 bg-body-tertiary rounded">
+    <h1 class="text-center fw-normal">Update Job</h1>
+
+    <form class="mt-4 mb-4 fw-light" action="/update" method="post">
+        <label for="category" class="form-label fs-4">Category</label>
+        <div class="input-group mb-3">
+            <!-- <span class="input-group-text fw-light">Category</span> -->
+            <select class="form-select fw-light" id="category" name="category">
+                <option class="fw-light" selected>Select job category</option>
+                <option class="fw-light" value="Tech" <%= jobs.category === 'Tech' ? 'selected' : '' %> >Tech</option>
+                <option class="fw-light" value="Non-Tech" <%= jobs.category === 'Non-Tech' ? 'selected' : '' %> >Non Tech</option>
+            </select>
+        </div>
+        <label for="jobRole" class="form-label fs-4">Position</label>
+        <div class="input-group mb-3">
+            <!-- <span class="input-group-text fw-light">Job Role</span> -->
+            <select class="form-select fw-light" id="jobRole" value="<%= jobs.position %>" name="position">
+                <option class="fw-light" disabled>Select job designation</option>
+                <option class="fw-light" value="HR" <%= jobs.position === 'HR' ? 'selected' : '' %> >HR</option>
+                <option class="fw-light" value="SDE" <%= jobs.position === 'SDE' ? 'selected' : '' %> >SDE</option>
+                <option class="fw-light" value="DevOps" <%= jobs.position === 'DevOps' ? 'selected' : '' %> >DevOps</option>
+                <option class="fw-light" value="MERN Developer" <%= jobs.position === 'MERN Developer' ? 'selected' : '' %> >MERN Developer</option>
+                <option class="fw-light" value="MEAN Developer" <%= jobs.position === 'MEAN Develope' ? 'selected' : '' %> >MEAN Developer</option>
+                <option class="fw-light" value="Java Developer" <%= jobs.position === 'Java Developer' ? 'selected' : '' %> >Java Developer</option>
+                <option class="fw-light" value="Front-End Develope" <%= jobs.position === 'Front-End Develope' ? 'selected' : '' %> >Front-End Developer</option>
+                <option class="fw-light" value="Back-End Developer" <%= jobs.position === 'Back-End Developer' ? 'selected' : '' %> >Back-End Developer</option>
+                <option class="fw-light" value="Full-Stack Developer" <%= jobs.position === 'Full-Stack Developer' ? 'selected' : '' %> >Full-Stack Developer</option>
+            </select>
+        </div>
+
+        <!-- <div class="mb-3">
+            <label for="location" class="form-label">Enter job location</label>
+            <input type="text" class="form-control fw-light" id="location" name="location" step="0.01" placeholder="Raipur Chhattisgarh"  >
+        </div> -->
+
+        <div class="input-group mb-3">
+            <span class="input-group-text fw-light fs-4">Location</span>
+            <input type="text" class="form-control fw-light" placeholder="Enter job location" aria-label="Username" value="<%= jobs.location %>" name="location">
+            <span class="input-group-text fw-light fs-4">Apply By</span>
+            <input type="date" class="form-control fw-light" aria-label="Server" name="date">
+        </div>
+        <div class="mb-3">
+            <label for="company" class="form-label fw-light fs-4">Company Name</label>
+            <!-- <span class="input-group-text fw-light">Company</span> -->
+            <input type="text" class="form-control fw-light" id="company" name="company" step="0.01" value="<%= jobs.company %>" placeholder="Google"  >
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text fw-light fs-4">Salary</span>
+            <input type="text" class="form-control fw-light" placeholder="Enter salary" aria-label="Username" value="<%= jobs.salary %>" name="salary">
+            <span class="input-group-text fw-light fs-4">Total Positions</span>
+            <input type="number" class="form-control fw-light" placeholder="No of openings" aria-label="Server" value="<%= jobs.numOfOpenings %>" name="numOfOpenings">
+        </div>
+        <label for="skills" class="form-label fw-light fs-4">Skills Required</label>
+        <div class="input-group mb-3">
+            <select multiple class="form-select fw-light d-inline" id="skills" value="<%= jobs.skills %>" name="skills">
+                <option class="fw-light" value="React" <%= jobs.skills.includes('React') ? 'selected' : '' %>>React</option>
+                <option class="fw-light" value="NodeJs" <%= jobs.skills.includes('NodeJs') ? 'selected' : '' %>>NodeJs</option>
+                <option class="fw-light" value="Angular" <%= jobs.skills.includes('Angular') ? 'selected' : '' %>>Angular</option>
+                <option class="fw-light" value="MongoDB" <%= jobs.skills.includes('MongoDB') ? 'selected' : '' %>>MongoDB</option>
+                <option class="fw-light" value="SQL" <%= jobs.skills.includes('SQL') ? 'selected' : '' %>>SQL</option>
+                <option class="fw-light" value="Express" <%= jobs.skills.includes('Express') ? 'selected' : '' %>>Express</option>
+                <option class="fw-light" value="Java" <%= jobs.skills.includes('Java') ? 'selected' : '' %>>Java</option>
+                <option class="fw-light" value="SpringBoot" <%= jobs.skills.includes('SpringBoot') ? 'selected' : '' %>>SpringBoot</option>
+                <option class="fw-light" value="C++" <%= jobs.skills.includes('C++') ? 'selected' : '' %>>C++</option>
+                <option class="fw-light" value="DSA" <%= jobs.skills.includes('DSA') ? 'selected' : '' %>>Data Structure & Algo</option>
+            </select>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-success text-white fs-6 fw-light">Submit</button>
+        </div>
+    </form>
+</div> 

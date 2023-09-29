@@ -43,10 +43,6 @@ export default class JobsController {
         let options = { day: 'numeric', month: 'short', year: 'numeric' };
         let formatDate = new Intl.DateTimeFormat('en-IN', options).format(getDate);
         console.log(formatDate);  // Outputs: 30 Sep 2023
-
-        // constpostedDate = req.date;
-
-        console.log("postedDate ", postedDate);
         JobModel.add(
             category,
             position,
@@ -77,6 +73,20 @@ export default class JobsController {
                 bgColor: "#fff",
                 userEmail: req.session.userEmail,
                 userName: req.session.userName,
+            });
+        }else {
+            res.status(401).send('Product not found');
+        }
+    }
+
+    getUpdateJobProfileView(req, res) {
+        // 1. if product exists then return view
+        const id = req.params.id;
+        const jobFound = JobModel.getById(id);
+        if(jobFound){
+            res.render("updateJobPage", {
+                jobs: jobFound,
+                bgColor: "#fff",
             });
         }else {
             res.status(401).send('Product not found');
