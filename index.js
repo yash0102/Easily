@@ -45,8 +45,7 @@ app.get("/postjob", jobController.getPostjobForm);
 app.post("/postjob", jobController.postNewJob);
 app.get("/jobs",jobController.getJobs);
 app.get("/jobs/:id",setLastVisit, jobController.getJobProfileView);
-app.get("/update/:id", jobController.getUpdateJobProfileView);
-app.get("/update", jobController.getUpdateJobProfileView);
+app.post("/jobs/delete/:id", jobController.deleteJobs);
 
 app.listen(3000, ()=>{
     console.log('Server is running on port 3000');

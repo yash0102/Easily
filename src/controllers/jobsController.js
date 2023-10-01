@@ -64,7 +64,7 @@ export default class JobsController {
     }
 
     getJobProfileView(req, res) {
-        // 1. if product exists then return view
+        // 1. if jobs exists then return view
         const id = req.params.id;
         const jobFound = JobModel.getById(id);
         if(jobFound){
@@ -80,7 +80,6 @@ export default class JobsController {
     }
 
     getUpdateJobProfileView(req, res) {
-        // 1. if product exists then return view
         const id = req.params.id;
         const jobFound = JobModel.getById(id);
         if(jobFound){
@@ -91,6 +90,18 @@ export default class JobsController {
         }else {
             res.status(401).send('Product not found');
         }
+    }
+
+    
+    deleteJobs(req, res) {
+        const id = req.params.id;
+        const productFound = JobModel.getById(id);
+        if(!productFound){
+            return res.status(401).send("Product not found");
+        }
+        JobModel.delete(id);
+
+        res.redirect("/jobs");
     }
 
 }

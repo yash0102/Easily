@@ -14,12 +14,7 @@ export default class JobModel {
     static get() {
         return jobs;
     }
-
-    static delete(id) {
-        const index = jobs.findIndex( p => p.id == id);
-        jobs.splice(index,1);
-    }
-
+    
     static add(category, position, location, formatDate, company, salary, numOfOpenings, skills){
         let newJob = new JobModel(
             jobs.length + 1,
@@ -37,6 +32,12 @@ export default class JobModel {
 
     static getById(id) {
         return jobs.find((job) => job.id == id);
+    }
+
+    
+    static delete(id) {
+        const index = jobs.findIndex( job => job.id == id);
+        jobs.splice(index,1);
     }
 }
 
