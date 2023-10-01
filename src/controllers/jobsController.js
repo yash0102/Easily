@@ -1,4 +1,5 @@
 import JobModel from "../models/job.model.js";
+import JobApplyModel from "../models/jobApply.model.js";
 
 export default class JobsController {
     getJobs(req, res) {
@@ -92,7 +93,7 @@ export default class JobsController {
         }
     }
 
-    
+
     deleteJobs(req, res) {
         const id = req.params.id;
         const productFound = JobModel.getById(id);
@@ -102,6 +103,23 @@ export default class JobsController {
         JobModel.delete(id);
 
         res.redirect("/jobs");
+    }
+
+    postApplyJobs(req, res, next) {
+        console.log("resume body",req.body);
+        const {name , email, contact } = req.body;
+
+        const resume = "uploads/" + req.file.filename;
+        JobApplyModel.add(name, email, contact, resume);
+
+        // res.redirect("/jobs");
+        let jobs = JobModel.get();
+        res.render("jobs", {
+            jobs: jobs,
+            bgColor: "#0e0d23",
+            userEmail: req.session.userEmail,
+            userName: req.session.userName,
+        })
     }
 
 }

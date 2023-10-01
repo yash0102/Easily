@@ -8,6 +8,7 @@ import session from "express-session";
 import { auth } from "./src/middlewares/auth.middleware.js";
 import cookieParser from "cookie-parser";
 import { setLastVisit } from "./src/middlewares/lastVisit.middleware.js";
+import { uploadFile } from "./src/middlewares/fileUpload.middleware.js";
 
 const app = express();
 app.use(express.static("public"));
@@ -45,6 +46,7 @@ app.get("/postjob", jobController.getPostjobForm);
 app.post("/postjob", jobController.postNewJob);
 app.get("/jobs",jobController.getJobs);
 app.get("/jobs/:id",setLastVisit, jobController.getJobProfileView);
+app.post("/apply/:id", uploadFile.single('resume'), jobController.postApplyJobs);
 app.post("/jobs/delete/:id", jobController.deleteJobs);
 
 app.listen(3000, ()=>{
