@@ -95,6 +95,31 @@ export default class JobsController {
         }
     }
 
+    postUpdateJobProfileView(req, res) {
+        // console.log(" update req.body ", req.body);
+        const paramsId = req.params.id;
+        const {id, category, position, location, formatDate, company, salary, numOfOpenings, skills} = req.body;
+        
+        // this will format a date as 30 Sep 2023
+        let getDate = new Date(formatDate);
+        let options = { day: 'numeric', month: 'short', year: 'numeric' };
+        let date = new Intl.DateTimeFormat('en-IN', options).format(getDate);
+
+        console.log(formatDate);
+
+        const formatData = {id, category, position, location, date, company, salary, numOfOpenings, skills}
+        JobModel.update(formatData);
+        let jobs = JobModel.getById(paramsId);
+        const applicant = JobApplyModel.getById(paramsId);
+
+        res.render("jobProfile", {
+            jobs: jobs,
+            user: applicant.userLength,
+            bgColor: "#fff",
+            userEmail: req.session.userEmail,
+            userName: req.session.userName,
+        });
+    }
 
     deleteJobs(req, res) {
         const id = req.params.id;
@@ -127,7 +152,7 @@ export default class JobsController {
     getViewApplicants(req, res, next) {
         const id = req.params.id;
         const applicant = JobApplyModel.getById(id);
-        
+
             return res.render("viewApplicants", {
                 users: applicant.user,
                 bgColor: "#fff",

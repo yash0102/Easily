@@ -49,6 +49,8 @@ app.get("/jobs",jobController.getJobs);
 app.get("/jobs/:id",setLastVisit, jobController.getJobProfileView);
 app.post("/apply/:id", uploadFile.single('resume'), jobController.postApplyJobs);
 app.get("/jobs/applicants/:id", jobController.getViewApplicants);
+app.get("/jobs/update/:id", jobController.getUpdateJobProfileView);
+app.post("/jobs/:id", jobController.postUpdateJobProfileView);
 app.post("/jobs/delete/:id", jobController.deleteJobs);
 
 app.listen(3000, ()=>{

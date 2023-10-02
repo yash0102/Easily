@@ -1,14 +1,14 @@
 export default class JobModel {
     constructor(id, category, position, location, formatDate, company, salary, numOfOpenings, skills) {
-    this.id = id;
-    this.category=category ;
-    this.position = position;
-    this.location = location;
-    this.date = formatDate;
-    this.company = company;
-    this.salary = salary;
-    this.numOfOpenings = numOfOpenings;
-    this.skills = skills
+        this.id = id;
+        this.category=category ;
+        this.position = position;
+        this.location = location;
+        this.date = formatDate;
+        this.company = company;
+        this.salary = salary;
+        this.numOfOpenings = numOfOpenings;
+        this.skills = skills
     }
   // static is methods can be accessed directly on the class without needing to create an instance.
     static get() {
@@ -34,6 +34,13 @@ export default class JobModel {
         return jobs.find((job) => job.id == id);
     }
 
+    static update(updatedJob) {
+        console.log("updatedJob ", updatedJob);
+        const index = jobs.findIndex((p) => p.id == updatedJob.id);
+        if (index !== -1) {
+            jobs[index] = updatedJob;
+        }
+    }
     
     static delete(id) {
         const index = jobs.findIndex( job => job.id == id);
