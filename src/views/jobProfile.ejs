@@ -27,7 +27,11 @@
             <li><img src="https://cdn-icons-png.flaticon.com/128/6366/6366707.png" width="20" > <%= jobs.salary %> lpa</li>
             <li><img src="https://cdn-icons-png.flaticon.com/128/786/786017.png" width="18"> Apply By <%= jobs.date %></li>
             <li><img src="https://cdn-icons-png.flaticon.com/128/5444/5444054.png" width="18"> Number of openings <%= jobs.numOfOpenings %></li>
-            <li><a href="/" style="text-decoration: none; color: #e40467;"><img src="/images/people.png" width="19"> Applicants 1</a></li>
+            <% if(locals.userEmail) {%>
+            <li><a href="/jobs/applicants/<%= jobs.id %>" style="text-decoration: none; color: #e40467;"><img src="/images/people.png" width="19"> Applicants <%= user %></a></li>
+            <% } else { %>
+            <li><a href="/jobs/<%= jobs.id %>" style="text-decoration: none; color: #e40467;"><img src="/images/people.png" width="19"> Applicants <%= user %></a></li>
+            <% } %>
         </ul>
         <div class="ms-4">
             <% if (jobs.skills.length > 0) { %>
@@ -62,6 +66,7 @@
             <div class="modal-body fw-normal fs-6">
                 <h2 class="fw-light text-center">apply in less than 1 minute</h2>
                 <form action="/apply/<%= jobs.id %>" method="post" enctype="multipart/form-data">
+                    <input type="hidden" class="form-control" id="id" name="id" value="<%= jobs.id %>">
                     <div class="mb-3">
                         <label for="name" class="form-label">Name</label>
                         <input type="text" class="form-control fw-light" id="name" name="name" placeholder="test" >

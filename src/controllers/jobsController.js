@@ -68,9 +68,12 @@ export default class JobsController {
         // 1. if jobs exists then return view
         const id = req.params.id;
         const jobFound = JobModel.getById(id);
+        const applicant = JobApplyModel.getById(id);
+
         if(jobFound){
             res.render("jobProfile", {
                 jobs: jobFound,
+                user: applicant.userLength,
                 bgColor: "#fff",
                 userEmail: req.session.userEmail,
                 userName: req.session.userName,
@@ -107,10 +110,10 @@ export default class JobsController {
 
     postApplyJobs(req, res, next) {
         console.log("resume body",req.body);
-        const {name , email, contact } = req.body;
+        const {id, name , email, contact } = req.body;
 
         const resume = "uploads/" + req.file.filename;
-        JobApplyModel.add(name, email, contact, resume);
+        JobApplyModel.add(id, name, email, contact, resume);
 
         // res.redirect("/jobs");
         let jobs = JobModel.get();
@@ -120,6 +123,25 @@ export default class JobsController {
             userEmail: req.session.userEmail,
             userName: req.session.userName,
         })
+    }
+
+    getViewApplicants(req, res, next) {
+        const id = req.params.id;
+        console.log("id ", id);
+        const applicant = JobApplyModel.getById(id);
+
+        var user = JobApplyModel.get();
+
+        console.log(" applicant getViewApp ", applicant);
+
+            return res.render("viewApplicants", {
+                users: applicant.user,
+                bgColor: "#fff",
+                userEmail: req.session.userEmail,
+                userName: req.session.userName,
+            })
+
+        
     }
 
 }

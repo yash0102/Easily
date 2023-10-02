@@ -12,6 +12,7 @@ import { uploadFile } from "./src/middlewares/fileUpload.middleware.js";
 
 const app = express();
 app.use(express.static("public"));
+app.use("/jobs/applicants/uploads", express.static("uploads"));
 app.use(cookieParser());
 
 // setup express session
@@ -47,6 +48,7 @@ app.post("/postjob", jobController.postNewJob);
 app.get("/jobs",jobController.getJobs);
 app.get("/jobs/:id",setLastVisit, jobController.getJobProfileView);
 app.post("/apply/:id", uploadFile.single('resume'), jobController.postApplyJobs);
+app.get("/jobs/applicants/:id", jobController.getViewApplicants);
 app.post("/jobs/delete/:id", jobController.deleteJobs);
 
 app.listen(3000, ()=>{

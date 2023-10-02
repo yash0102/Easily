@@ -1,0 +1,26 @@
+<div class="container mt-4">
+    <table class="table fs-5 fw-light">
+    <thead>
+        <tr class="fw-light table-dark">
+            <th scope="col" class="fs-4 fw-light pe-0">SN</th>
+            <th scope="col" class="fs-4 fw-light">Name</th>
+            <th scope="col" class="fs-4 fw-light">Email</th>
+            <th scope="col" class="fs-4 fw-light">Contact</th>
+            <th scope="col" class="fs-4 fw-light">Resume</th>
+        </tr>
+    </thead>
+    <tbody class="table-secondary">
+        <% let count = 1 %>
+        <% users.forEach((user)=> { %>
+            <tr>
+                <th scope="row" class="fs-5 fw-light"><%= count %></th>
+                <td><%= user.name %></td>
+                <td><%= user.email %></td>
+                <td><%= user.contact %></td>
+                <td><a class="btn btn-primary" href="/<%= user.resume %>" target="_blank">View</a></td>
+            </tr>
+            <% count++; %>
+        <% }) %>
+    </tbody>
+    </table>
+</div>

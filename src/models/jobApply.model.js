@@ -7,10 +7,30 @@ export default class JobApplyModel {
         this.resume = resume;
     }
 
-    static add(name, email, contact, resume) {
-        const newUser = new JobApplyModel(users.length + 1, name, email, contact, resume);
+    static get() {
+        return users;
+    }
+
+    static add(id, name, email, contact, resume) {
+        const newUser = new JobApplyModel( id, name, email, contact, resume);
         users.push(newUser);
+        console.log("users ", users);
+    }
+
+    static getById (id) {
+        const user = users.filter((u) => u.id === id);
+        console.log("getById user :",user);
+        let userLength = user.length;
+        return { user, userLength }
     }
 }
 
-var users = [];
+var users = [
+    new JobApplyModel(
+        1,
+        "yashwant",
+        "yashsonkar0102@gmail.com",
+        6264462744,
+        "uploads/1696167019512-Yashwant_Sonkar_CV.pdf"
+    ),
+];
