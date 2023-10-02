@@ -21,7 +21,6 @@ export default class JobsController {
     }
 
     postNewJob(req, res) {
-        console.log("req.body newJob ",req.body);
         const {
             category,
             position,
@@ -43,7 +42,7 @@ export default class JobsController {
         let getDate = new Date(date);
         let options = { day: 'numeric', month: 'short', year: 'numeric' };
         let formatDate = new Intl.DateTimeFormat('en-IN', options).format(getDate);
-        console.log(formatDate);  // Outputs: 30 Sep 2023
+
         JobModel.add(
             category,
             position,
@@ -109,7 +108,7 @@ export default class JobsController {
     }
 
     postApplyJobs(req, res, next) {
-        console.log("resume body",req.body);
+
         const {id, name , email, contact } = req.body;
 
         const resume = "uploads/" + req.file.filename;
@@ -127,13 +126,8 @@ export default class JobsController {
 
     getViewApplicants(req, res, next) {
         const id = req.params.id;
-        console.log("id ", id);
         const applicant = JobApplyModel.getById(id);
-
-        var user = JobApplyModel.get();
-
-        console.log(" applicant getViewApp ", applicant);
-
+        
             return res.render("viewApplicants", {
                 users: applicant.user,
                 bgColor: "#fff",

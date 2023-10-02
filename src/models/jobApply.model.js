@@ -14,12 +14,10 @@ export default class JobApplyModel {
     static add(id, name, email, contact, resume) {
         const newUser = new JobApplyModel( id, name, email, contact, resume);
         users.push(newUser);
-        console.log("users ", users);
     }
 
     static getById (id) {
         const user = users.filter((u) => u.id === id);
-        console.log("getById user :",user);
         let userLength = user.length;
         return { user, userLength }
     }
