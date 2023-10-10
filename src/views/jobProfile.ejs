@@ -12,10 +12,8 @@
             Actively hiring <img src="https://cdn-icons-png.flaticon.com/128/5668/5668104.png" width="15px">
         </span>
         <div class="mt-1">
-            <a href="/jobs/update/<%= jobs.id %>" class="ms-4 pe-auto" style="text-decoration: none;">
-                <img src="/images/Update.png" width="25px"> 
-            </a>
-            <img class="ms-2" src="/images/Delete.png" onclick="deleteProduct('<%= jobs.id %>')" width="25" style="cursor: pointer;"> 
+            <img src="/images/Update.png" width="25" onclick="updateJob('<%= jobs.id %>')" class="ms-4 pe-auto" style="cursor: pointer;">
+            <img class="ms-2" src="/images/Delete.png" onclick="deleteJob('<%= jobs.id %>')" width="25" style="cursor: pointer;"> 
         </div>
     </div>
     <% } %>

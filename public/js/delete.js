@@ -1,5 +1,5 @@
-function deleteProduct(id) {
-    const result = confirm("Are you want to delete this product ?");
+function deleteJob(id) {
+    const result = confirm("Are you want to delete this job ?");
     if(result){
         fetch("/jobs/delete/" + id, {
             method: 'POST',
